@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Checklist Implementacion</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checklist Implementacion 💻</title>
 <style>
     body {
         font-family: 'Segoe UI', Arial, sans-serif;
@@ -17,10 +18,11 @@
         text-align: center;
         margin-bottom: 20px;
         font-weight: 600;
+        font-size: 1.5rem;
     }
     .checklist {
         background: #1e1e1e;
-        padding: 25px;
+        padding: 20px;
         border-radius: 12px;
         box-shadow: 0 0 15px rgba(0,0,0,0.5);
         max-width: 900px;
@@ -34,7 +36,7 @@
         border-bottom: 1px solid rgba(255,255,255,0.1);
         padding-bottom: 5px;
     }
-    label {
+    .check-item {
         display: flex;
         align-items: center;
         margin: 8px 0;
@@ -43,13 +45,22 @@
         transition: background-color 0.2s ease;
         cursor: pointer;
     }
-    label:hover {
+    .check-item:hover {
         background-color: rgba(255,255,255,0.05);
     }
-    input[type="checkbox"] {
+    .check-item input[type="checkbox"] {
         margin-right: 10px;
         transform: scale(1.2);
         cursor: pointer;
+        flex-shrink: 0;
+    }
+    .check-text {
+        flex: 1;
+    }
+    /* Estado cuando está chequeado */
+    .check-item input[type="checkbox"]:checked + .check-text {
+        text-decoration: line-through;
+        color: #aaa;
     }
     button {
         background-color: #e63946;
@@ -70,77 +81,38 @@
         transform: scale(1.05);
     }
 
-input[type="checkbox"]:checked + label {
-  text-decoration: line-through; /* Línea en la mitad del texto */
-  opacity: 0.6;                  /* Texto más opaco */
-}
+    /* Modo móvil */
+    @media (max-width: 600px) {
+        body {
+            padding: 10px;
+        }
+        .checklist {
+            padding: 15px;
+        }
+        h1 {
+            font-size: 1.2rem;
+        }
+        .check-text {
+            font-size: 0.9rem;
+        }
+    }
 </style>
 </head>
 <body>
 
-<h1>Checklist de revisión</h1>
+<h1>Checklist de implementación 💻</h1>
 
 <div class="checklist">
     <!-- Diseño -->
     <strong>Diseño</strong>
-    <label><input type="checkbox"> ¿Se ha implementado correctamente el diseño de Figma?</label>
-    <label><input type="checkbox"> ¿Se aplicaron correctamente la tipografía y la negrita según lo indicado en Figma?</label>
-    <label><input type="checkbox"> ¿La calidad de las imágenes es adecuada para la visualización del nuevo diseño solicitado por el cliente?</label>
-    <label><input type="checkbox"> ¿El formato de precio de los artículos coincide con lo que desea el cliente? (Si no se especifica, se utilizó el formato estándar).</label>
-    <label><input type="checkbox"> ¿Los iconos reflejan de manera adecuada la representación visual del elemento web y su función?</label>
-    <label><input type="checkbox"> ¿Se utilizaron los materiales proporcionados por el cliente y almacenados en la carpeta de Drive?</label>
-    <label><input type="checkbox"> ¿Los textos legales fueron modificados correctamente según las peticiones del cliente?</label>
-    <label><input type="checkbox"> ¿El footer de la web incluye los elementos mínimos requeridos por el Kit Digital? (Logo y legales)</label>
+    <label class="check-item"><input type="checkbox"><span class="check-text">¿Se ha implementado correctamente el diseño de Figma?</span></label>
+    <label class="check-item"><input type="checkbox"><span class="check-text">¿Se aplicaron correctamente la tipografía y la negrita según lo indicado en Figma?</span></label>
+    <label class="check-item"><input type="checkbox"><span class="check-text">¿La calidad de las imágenes es adecuada para la visualización del nuevo diseño solicitado por el cliente?</span></label>
 
-    <!-- Funcionalidad -->
+    <!-- Ejemplo de más secciones -->
     <strong>Funcionalidad</strong>
-    <label><input type="checkbox"> ¿Los botones están funcionando correctamente en la estructura modificada?</label>
-    <label><input type="checkbox"> ¿Los formularios implementados funcionan correctamente?</label>
-    <label><input type="checkbox"> ¿Se realizó la configuración correcta del ecommerce?</label>
-    <label><input type="checkbox"> ¿El sistema añadido de búsqueda es funcional?</label>
-    <label><input type="checkbox"> ¿Se llevó a cabo el enmascaramiento de manera correcta?</label>
-    <label><input type="checkbox"> ¿La web cuenta con análisis de palabras clave, indexación, H1 y jerarquización del contenido?</label>
-    <label><input type="checkbox"> ¿Contiene los accesos del WordPress con /KD-SysAd?</label>
-    <label><input type="checkbox"> ¿Se encuentra los datos públicos del whois activos en Don Dominio?</label>
-    <label><input type="checkbox"> ¿Se ha respetado la directriz de no incluir CTA en las secciones legales?</label>
-
-    <!-- Estructura y Responsividad -->
-    <strong>Estructura y Responsividad</strong>
-    <label><input type="checkbox"> ¿Se ha incluido un H1 en cada una de las páginas implementadas?</label>
-    <label><input type="checkbox"> ¿La estructura web ajustada es responsive y se adapta correctamente a PC, tablet y móvil?</label>
-    <label><input type="checkbox"> ¿Está ajustado el formato de correo, dirección, horarios y mapa según las instrucciones del cliente?</label>
-    <label><input type="checkbox"> ¿Las márgenes cumplen con el diseño requerido o con las establecidas por ORBIDI?</label>
-
-    <!-- URL y Navegación -->
-    <strong>URL y Navegación</strong>
-    <label><input type="checkbox"> ¿El URL-SLUG está correctamente nombrado?</label>
-    <label><input type="checkbox"> ¿Los anclajes de la web one page funcionan correctamente?</label>
-    <label><input type="checkbox"> ¿Están correctamente nombrados los slugs de los anclajes?</label>
-
-    <!-- Logo y Archivos -->
-    <strong>Logo y Archivos</strong>
-    <label><input type="checkbox"> Si el logo sufrió modificaciones, ¿el implementador actualizó el logo?</label>
-    <label><input type="checkbox"> Si se actualizó el logo, ¿también se actualizó el favicon?</label>
-
-    <!-- Idiomas -->
-    <strong>Idiomas y Contenido Multilingüe</strong>
-    <label><input type="checkbox"> ¿Se incluyeron los idiomas adicionales solicitados?</label>
-    <label><input type="checkbox"> ¿La página está configurada en castellano?</label>
-    <label><input type="checkbox"> ¿La web presenta problemas con márgenes, imágenes, iconos o textos incorrectos?</label>
-
-    <!-- Configuración -->
-    <strong>Configuración General</strong>
-    <label><input type="checkbox"> ¿La web tiene configuradas las métricas en Google Search Console y Analytics?</label>
-    <label><input type="checkbox"> ¿Se configuraron correctamente los competidores en SE Ranking?</label>
-
-    <!-- Otras -->
-    <strong>Otras Consideraciones</strong>
-    <label><input type="checkbox"> ¿La web incluye las reseñas solicitadas?</label>
-    <label><input type="checkbox"> ¿Se han considerado las solicitudes fuera de Figma/Markup?</label>
-    <label><input type="checkbox"> ¿Se corrigió el nombre comercial en toda la web?</label>
-    <label><input type="checkbox"> ¿El implementador no ejecutó el reply de confirmación sin justificación?</label>
-    <label><input type="checkbox"> ¿Se dejaron solicitudes claras por parte de implementación?</label>
-    <label><input type="checkbox"> ¿Se cumplió con lo solicitado en la documentación adjunta?</label>
+    <label class="check-item"><input type="checkbox"><span class="check-text">¿Los botones están funcionando correctamente?</span></label>
+    <label class="check-item"><input type="checkbox"><span class="check-text">¿Los formularios implementados funcionan correctamente?</span></label>
 
     <button onclick="resetChecklist()">Reset</button>
 </div>
